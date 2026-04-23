@@ -1,0 +1,15 @@
+include:
+  - path: ./jellyfin/docker-compose.yml
+    project_directory: ./jellyfin
+
+  - path: ./searxng/docker-compose.yml
+    project_directory: ./searxng
+
+  - path: ./transmission/docker-compose.yml
+    project_directory: ./transmission
+
+  - path: ./paperless/docker-compose.yml
+    project_directory: ./paperless
+
+  - path: ./docuwiki/docker-compose.yml
+    project_directory: ./docuwiki

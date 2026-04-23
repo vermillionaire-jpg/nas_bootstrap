@@ -1,0 +1,28 @@
+name: transmission
+
+services:
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8  
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+#      - TRANSMISSION_WEB_HOME= #optional
+#      - USER= #optional
+#      - PASS= #optional
+#      - WHITELIST= #optional
+#      - PEERPORT= #optional
+#      - HOST_WHITELIST= #optional
+    volumes:
+      - ~/docker/trans/config/:/config
+      - /home/$USER/trans/downloads:/downloads 
+      - /home/$USER/trans/complete:/complete
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped
